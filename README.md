@@ -1,4 +1,4 @@
-# Tickitz Backend
+# Radya Labs Assignment
 
 <ol>
     <li>
@@ -19,7 +19,7 @@
 </ol>
 
 ## About The Project
-Tickitz backend made with express js, nodejs, mysql
+Website made with React JS
 
 ### Feature
 - Get current location
