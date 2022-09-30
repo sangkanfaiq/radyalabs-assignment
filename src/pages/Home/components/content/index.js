@@ -22,9 +22,6 @@ const Content = () => {
 
   const [weatherDetails, setWeatherDetails] = useState(false)
 
-  console.log(forecast.daily[0], 'daily')
-  console.log(forecast.current, 'current')
-
   const [ status, setStatus ] = useState('')
   const [ coord, setCoord ] = useState({
     lat: 0,
@@ -146,12 +143,12 @@ const Content = () => {
                 <h3>{coord.location}</h3>
                 <p>as of {moment().format('LT')}</p>
                 <h1>{Math.ceil(forecast.current?.temp-273.15)}°</h1>
-                <h2>{forecast.current.weather[0]?.main}</h2>
+                <h2>{forecast.daily[0]?.weather[0]?.main}</h2>
                 <h4>{forecast.daily[0]?.rain}% chance of rain through 5 pm</h4>
               </div>
 
               <div className="wheather-status">
-                <img src={`https://openweathermap.org/img/w/${forecast?.current?.weather[0]?.icon}.png`} alt="logo"/>
+                <img src={`https://openweathermap.org/img/w/${forecast?.daily[0]?.weather[0]?.icon}.png`} alt="logo"/>
                 <h1>{Math.ceil(forecast.daily[0]?.temp.min-273.15)}°/{Math.ceil(forecast.daily[0]?.temp.max-273.15)}°</h1>
               </div>
             </div>
@@ -214,7 +211,7 @@ const Content = () => {
                       <div className="w-left-desc">
                         <div className="left-desc-comp">
                           <h1>{Math.ceil(forecast.current.temp-273.15)}°</h1>
-                          <img src={`https://openweathermap.org/img/w/${forecast.current.weather[0]?.icon}.png`} alt="logo" />
+                          <img src={`https://openweathermap.org/img/w/${forecast.daily[0]?.weather[0]?.icon}.png`} alt="logo" />
                         </div>
                         <div className="right-desc-comp">
                           <div className="weather-desc-comp">
@@ -228,7 +225,7 @@ const Content = () => {
                         </div>
                       </div>
                       <p>
-                        {forecast.current.weather[0]?.main} with a slight chance of {forecast.current.weather[0].description}. High {Math.ceil(forecast.daily[0].temp.max-273.15)}C, Winds N at {Math.ceil(forecast.daily[0]?.wind_speed)} to {Math.ceil(forecast.daily[0]?.wind_gust)} mph. Chance of rain {Math.ceil(forecast.daily[0]?.rain)}%
+                        {forecast.daily[0]?.weather[0]?.main} with a slight chance of {forecast.daily[0]?.weather[0]?.description}. High {Math.ceil(forecast.daily[0]?.temp.max-273.15)}C, Winds N at {Math.ceil(forecast.daily[0]?.wind_speed)} to {Math.ceil(forecast.daily[0]?.wind_gust)} mph. Chance of rain {Math.ceil(forecast.daily[0]?.rain)}%
                       </p>
 
                       <div className="w-card">
@@ -341,8 +338,8 @@ const Content = () => {
                       </h4>
                     </div>
                     <div className="forecast-img d-flex">
-                      <img src={`https://openweathermap.org/img/w/${forecast.current.weather[0]?.icon}.png`} alt="logo" />
-                      {moment().format('A')} {forecast.current.weather[0]?.description}
+                      <img src={`https://openweathermap.org/img/w/${forecast.daily[0]?.weather[0]?.icon}.png`} alt="logo" />
+                      {moment().format('A')} {forecast.daily[0]?.weather[0]?.description}
                     </div>
                     <div className="forecast-status d-flex justify-content-between">
                       <div className="rainy">
